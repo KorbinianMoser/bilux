@@ -34,34 +34,13 @@ $slug = $wp_query->queried_object->post_name;
     <div id="left">
     	<h1 class="site-title"><a href="<?php bloginfo('wpurl') ?>" title="Zur Startseite"><span class="hidden"><?php wp_title('') ?> | </span>Birgit Luxenburger</a></h1>
         <?php wp_nav_menu(['theme_location'=>'texts']); ?>
-        <!--
-        <ul id="nav">
-        	<li><a <?php if($slug=='vita') echo 'class="active" ' ?> href="<?php bloginfo('wpurl') ?>/vita/">Vita</a></li>
-        	<li><a <?php if($slug=='bibliographie') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/bibliographie/">Texte</a></li>
-        	<li><a <?php if($slug=='seminare') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/seminare/">Seminare</a></li>
-        	<li><a <?php if($slug=='links') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/links/">Links</a></li>
-        	<li><a <?php if($slug=='kontakt') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/kontakt/">Kontakt</a></li>
-        </ul>
-        -->
     </div>
     <div id="right">
         <?php wp_nav_menu(['theme_location'=>'works']); ?>
-        <!--
-        <ul id="nav">
-        	<li><a <?php if($slug=='malerei') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/malerei/">Malerei</a></li>
-        	<li><a <?php if($slug=='auf-papier') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/auf-papier/">Auf Papier</a></li>
-        	<li><a <?php if($slug=='fotografische-arbeiten') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/fotografische-arbeiten/">Fotografie</a></li>
-        	<li><a <?php if($slug=='installation') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/installation/">Installation</a></li>
-        	<li><a <?php if($slug=='kunst-am-bau') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/kunst-am-bau/">Kunst am Bau</a></li>
-        </ul>
-        -->
         <ul id="items"></ul>
         <div id="content">
 
 <?php
-
-    // echo '- '.have_posts().' -';
-
 	if( have_posts()) while( have_posts()):the_post();
     // echo '<pre>test: '.print_r($post,true).'</pre>';
 	if( get_post_type()=='page')
@@ -89,7 +68,6 @@ $slug = $wp_query->queried_object->post_name;
 			echo '<p><a href="'.get_bloginfo('wpurl').'/seminare/#'.$anchor.'" title="Zurück zur Übersicht" class="details">&lt;</a></p>';
 			echo '&nbsp;';
 		}
-		// echo '<div class="postDate">'.get_the_date('d.m.Y').'</div>';
 		echo '</div>';
 	}
 	endwhile;
@@ -99,12 +77,6 @@ $slug = $wp_query->queried_object->post_name;
         </div>
         <div id="footer">
             <?php wp_nav_menu(['theme_location'=>'footer']); ?>
-            <!--
-            <ul id="nav">
-                <li><a <?php if($slug=='impressum') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/impressum/">Impressum</a></li>
-                <li><a <?php if($slug=='datenschutz') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/datenschutz/">Datenschutz</a></li>
-            </ul>
-            -->
         </div>
         <div class="clear"></div>
     </div>

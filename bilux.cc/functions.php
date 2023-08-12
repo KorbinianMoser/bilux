@@ -44,8 +44,6 @@ cleanup();
 add_action( 'wp_enqueue_scripts', function() {
     wp_enqueue_style( 'bilux-css', get_template_directory_uri().'/style.css', [], filemtime(get_template_directory().'/style.css') );
     wp_enqueue_script( 'bilux-js', get_template_directory_uri().'/scripts.js', ['jquery'], filemtime(get_template_directory().'/script.js') );
-    // wp_dequeue_style( 'leaflet-css' );
-    // wp_dequeue_script( 'leaflet-js' );
 }, 100 );
 
 
