@@ -15,11 +15,10 @@ $slug = $wp_query->queried_object->post_name;
 <meta charset="utf-8">
 <title>Birgit Luxenburger<?php wp_title(' - ') ?></title>
 <?php wp_head() ?>
-<meta name="viewport" content="width=1000" />
+<!-- <meta name="viewport" content="width=1000" /> -->
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' data:" />
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url') ?>" />
-<script type="text/javascript" src="<?php bloginfo('template_url') ?>/mootools-yui-compressed.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url') ?>/scripts.js"></script>
+<link rel="shortcut icon" href="<?php bloginfo('template_url') ?>/favicon.png" type="image/x-icon" />
 </head>
 
 <body>
@@ -28,8 +27,14 @@ $slug = $wp_query->queried_object->post_name;
 
 
 <div id="center">
+    <div id="mobile-nav" class="open">
+        <h1 class="site-title"><a href="#" title="Menü öffnen"><span class="burger-icon"><span></span><span></span><span></span></span>Birgit Luxenburger</a></h1>
+        <?php wp_nav_menu(['theme_location'=>'mobile']); ?>
+    </div>
     <div id="left">
-    	<h1><a href="<?php bloginfo('wpurl') ?>" title="Zur Startseite"><span class="hidden"><?php wp_title('') ?> | </span>Birgit Luxenburger</a></h1>
+    	<h1 class="site-title"><a href="<?php bloginfo('wpurl') ?>" title="Zur Startseite"><span class="hidden"><?php wp_title('') ?> | </span>Birgit Luxenburger</a></h1>
+        <?php wp_nav_menu(['theme_location'=>'texts']); ?>
+        <!--
         <ul id="nav">
         	<li><a <?php if($slug=='vita') echo 'class="active" ' ?> href="<?php bloginfo('wpurl') ?>/vita/">Vita</a></li>
         	<li><a <?php if($slug=='bibliographie') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/bibliographie/">Texte</a></li>
@@ -37,8 +42,11 @@ $slug = $wp_query->queried_object->post_name;
         	<li><a <?php if($slug=='links') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/links/">Links</a></li>
         	<li><a <?php if($slug=='kontakt') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/kontakt/">Kontakt</a></li>
         </ul>
+        -->
     </div>
     <div id="right">
+        <?php wp_nav_menu(['theme_location'=>'works']); ?>
+        <!--
         <ul id="nav">
         	<li><a <?php if($slug=='malerei') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/malerei/">Malerei</a></li>
         	<li><a <?php if($slug=='auf-papier') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/auf-papier/">Auf Papier</a></li>
@@ -46,6 +54,7 @@ $slug = $wp_query->queried_object->post_name;
         	<li><a <?php if($slug=='installation') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/installation/">Installation</a></li>
         	<li><a <?php if($slug=='kunst-am-bau') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/kunst-am-bau/">Kunst am Bau</a></li>
         </ul>
+        -->
         <ul id="items"></ul>
         <div id="content">
 
@@ -89,10 +98,13 @@ $slug = $wp_query->queried_object->post_name;
 
         </div>
         <div id="footer">
+            <?php wp_nav_menu(['theme_location'=>'footer']); ?>
+            <!--
             <ul id="nav">
                 <li><a <?php if($slug=='impressum') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/impressum/">Impressum</a></li>
                 <li><a <?php if($slug=='datenschutz') echo 'class="active" ' ?>  href="<?php bloginfo('wpurl') ?>/datenschutz/">Datenschutz</a></li>
             </ul>
+            -->
         </div>
         <div class="clear"></div>
     </div>
@@ -100,6 +112,7 @@ $slug = $wp_query->queried_object->post_name;
 </div>
 
 
+<?php wp_footer() ?>
 
 </body>
 </html>
